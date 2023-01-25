@@ -7,13 +7,13 @@ def range(start, end_number)
     return [] if end_number < start
     return start if start == end_number - 1
 
-    new_arr = []
-    new_arr << start 
+    # new_arr = []
+    # new_arr << 
     # add_arr = [range(start + 1, end_number)] 
-    #range[start, end_number - 1] << end_number
-    new_arr.concat(add_arr)
+    range(start, end_number - 1) << end_number
+    # new_arr.concat(add_arr)
 
-    return new_arr
+    # return new_arr
 
     
 end
