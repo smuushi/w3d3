@@ -86,14 +86,43 @@ p range(1, 4)
 
   end
 
-  robot_parts = [
-  ["nuts", "bolts", "washers"],
-  ["capacitors", "resistors", "inductors"]
-]
-  robot_parts_copy = deep_dup(robot_parts)
+#   robot_parts = [
+#   ["nuts", "bolts", "washers"],
+#   ["capacitors", "resistors", "inductors"]
+# ]
+#   robot_parts_copy = deep_dup(robot_parts)
 
-  robot_parts_copy[1] << "LEDs"
+#   robot_parts_copy[1] << "LEDs"
 
-  p robot_parts[1]
+#   p robot_parts[1]
 
-  p robot_parts_copy[1]
+#   p robot_parts_copy[1]
+
+  
+
+def fibonacci(n)
+
+  if n == 0
+    return []
+  end
+
+  if n == 1
+    return [0]
+  end
+
+  if n == 2
+    return [0, 1]
+  end
+
+  previous_seq = fibonacci(n - 1)
+
+  new_seq = previous_seq + [previous_seq[-2..-1].sum]
+
+  return new_seq
+
+end
+
+p fibonacci(4)
+
+
+
