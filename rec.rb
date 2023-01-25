@@ -1,4 +1,5 @@
             #1             #2
+require "byebug"
 
 def range(start, end_number)
     
@@ -128,10 +129,48 @@ p fibonacci(4)
 
 def bsearch(array, target)
 
-  return nil if array.length == 0
-  
-  mid_point = array.length / 2
+  debugger
 
+  return nil if array.length == 0
+
+  if array.length % 2 == 0
+    mid_point = (array.length / 2) - 1
+  end
+
+  if array.length % 2 != 0
+    mid_point = (array.length / 2) 
+  end
+
+  if array[mid_point] == target
+    return mid_point 
+  end
+
+  if array[mid_point] > target
+    first_half = bsearch(array[0..mid_point],target)
+    if first_half == nil 
+      return nil
+    else
+      return mid_point - first_half
+    end
   
+  elsif array[mid_point] < target
+    second_half = bsearch(array[mid_point..-1],target)
+      if second_half == nil  
+        return nil
+      else 
+        return mid_point + first_half
+      end
+  end
+      
+
 
 end
+
+
+# p bsearch([1, 2, 3], 1) # => 0
+# p bsearch([2, 3, 4, 5], 3) # => 1
+# p bsearch([2, 4, 6, 8, 10], 6) # => 2
+p bsearch([1, 3, 4, 5, 9], 5) # => 3
+# p bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
+# p bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
+# p bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
