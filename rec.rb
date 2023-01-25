@@ -126,3 +126,12 @@ p fibonacci(4)
 
 
 
+def bsearch(array, target)
+
+  return nil if array.length == 0
+  
+  mid_point = array.length / 2
+
+  
+
+end
